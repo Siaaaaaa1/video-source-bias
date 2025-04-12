@@ -1,0 +1,28 @@
+CUDA_VISIBLE_DEVICES=0,1,2 torchrun --nproc_per_node 3 main_task_retrieval.py \
+    --do_train \
+    --num_thread_reader=4 \
+    --epochs=5 \
+    --batch_size=15 \
+    --n_display=50 \
+    --train_csv="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/Dataset/msrvtt_train_new/MSRVTT_train.9k.csv" \
+    --val_csv="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/Dataset/msrvtt_train_new/MSRVTT_JSFUSION_test.csv" \
+    --data_path="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/Dataset/msrvtt_train_new/MSRVTT_data.json" \
+    --lr=1e-3 \
+    --max_words=77 \
+    --max_frames=12 \
+    --batch_size_val=15 \
+    --datatype="msrvtt" \
+    --expand_msrvtt_sentences  \
+    --feature_framerate=1 \
+    --coef_lr=4e-3 \
+    --freeze_layer_num=0 \
+    --slice_framepos=2 \
+    --linear_patch=2d \
+    --sim_header meanP \
+    --loose_type \
+    --pretrained_clip_name="ViT-L/14" \
+    --output_dir="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/output" \
+    --clip_evl \
+    --pretrained_path="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/ckpt/InternVideo-MM-L-14.ckpt" \
+    --features_path="/data/gaohaowen/workspace/InternVideo-main/InternVideo1/Dataset/msrvtt/videos" \
+    --mergeclip=True \
